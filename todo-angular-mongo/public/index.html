@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="TasksApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tasks Manager</title>
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+    .done {
+        text-decoration: line-through;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Tasks Manager</h1>
+        <div class="navbar">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li class="active">
+                        <a href="#!/tasks">TODO Tasks</a>
+                    </li>
+                    <li>
+                        <a href="#!/tasks/status">DONE Tasks</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <ng-view></ng-view>
+    </div>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,5 @@
+<ul>
+    <li ng-repeat="task in tasks | filter: { done: true }">
+        <span>{{ task.title }}</span>
+    </li>
+</ul>
