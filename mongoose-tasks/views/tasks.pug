@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  form.form-inline(method='post', action='/tasks')
+    a.btn.btn-default.col-sm-1(href="/allDone" type='button') All Done
+    |
+    input.col-sm-10(type='text', name='title', placeholder='Write a task')
+    |  
+    button.btn.btn-primary.col-sm-1(type='submit') Add
+  table.table
+    thead
+      tr
+        td
+        th #
+        td Task Title
+        td Created At
+        td Modified At
+        td
+    tbody
+      each obj in tasks 
+        if (!obj.done) 
+          tr
+            td
+              a.btn.btn-default.btnDone(href=`/task/${obj.id}` type='button') Done
+            th(scope='row') #{tasks.indexOf(obj) + 1}
+            td.taskTitle=obj.title
+            td=obj.createdAt
+            //- td 
+            //-   (Created at: #{obj.createdAt.getFullYear()}/#{obj.createdAt.getMonth() + 1}/#{obj.createdAt.getDay()} #{obj.createdAt.getHours()}:#{obj.createdAt.getMinutes()})
+            td=obj.modifiedAt
+            td
+              a.btn.btn-default.btnDelete(href=`/task/${obj.id}` type='button') Delete

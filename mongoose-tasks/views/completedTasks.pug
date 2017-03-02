@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  table.table
+    each obj in tasks
+      if (obj.done) 
+        tr
+          th(scope='row') #{tasks.indexOf(obj) + 1}
+          td=obj.title
+          td=obj.createdAt
+          //- td 
+          //-   (Created at: #{obj.createdAt.getFullYear()}/#{obj.createdAt.getMonth() + 1}/#{obj.createdAt.getDay()} #{obj.createdAt.getHours()}:#{obj.createdAt.getMinutes()})
+          td=obj.modifiedAt
+          td
+            a.btn.btn-default.btnDelete(href=`/task/${obj.id}` type='button') Delete

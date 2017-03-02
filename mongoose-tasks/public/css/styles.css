@@ -1,0 +1,17 @@
+body > nav.navbar {
+  margin-left: 54px;
+  margin-right: 54px;
+  border: 0px;
+  border-radius: 0px;
+  border-bottom: 1px solid black; 
+}
+
+body > div:nth-child(3) > form > input {
+  height: 34px;
+  border: 1px solid #adadad;
+  border-radius: 4px; 
+}
+
+form {
+  height: 50px;
+}
