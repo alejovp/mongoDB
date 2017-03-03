@@ -9,6 +9,7 @@ block content
         th Last Name
         th Age
         th Address
+        th Profession
     tbody
       each obj in clients  
         tr
@@ -17,5 +18,5 @@ block content
           td=obj.lastName
           td=obj.age
           td=obj.address
-
+          td=obj.profession
           //- | #{tasks.indexOf(obj) + 1}. #{obj.task}

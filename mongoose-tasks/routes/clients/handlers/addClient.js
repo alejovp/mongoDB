@@ -7,7 +7,8 @@ module.exports = (req, res) => {
   client.save()
     .then(client => {
       console.log('Client has been added succesfully')
-      res.status(200).json(client)
+      res.redirect('/clients')
     })
     .catch(err => res.status(500).json(err))
 }
+

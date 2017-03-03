@@ -1,0 +1,35 @@
+extends layout
+
+block content  
+  #myModalHorizontal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal')
+            span(aria-hidden='true') &times;
+            |  
+            span.sr-only Close
+          h4#myModalLabel.modal-title  Modal title
+        .modal-body
+          form.form-horizontal(role='form')
+            .form-group
+              label.col-sm-2.control-label(for='inputEmail3') Email
+              .col-sm-10
+                input#inputEmail3.form-control(type='email', placeholder='Email')
+            .form-group
+              label.col-sm-2.control-label(for='inputPassword3') Password
+              .col-sm-10
+                input#inputPassword3.form-control(type='password', placeholder='Password')
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                .checkbox
+                  label
+                    input(type='checkbox')
+                    |  Remember me
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button.btn.btn-default(type='submit') Sign in
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal')  Close
+          |  
+          button.btn.btn-primary(type='button')  Save changes

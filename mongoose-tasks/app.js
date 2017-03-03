@@ -19,6 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.set('view engine', 'pug')
 
+app.get('/', (req, res) => {
+  const section = 'Home'
+  res.render('home', {section})
+})
 app.use('/tasks', routerTasks)
 app.use('/task', routerTask)
 app.use('/clients', routerClients)
