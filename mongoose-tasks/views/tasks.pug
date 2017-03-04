@@ -18,7 +18,7 @@ block content
         td
     tbody
       each obj in tasks 
-        if (!obj.done) 
+        if (!obj.done && user.id == obj.user_id) 
           tr
             td
               a.btn.btn-default.btnDone(href=`/task/${obj.id}` type='button') Done

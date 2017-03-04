@@ -3,7 +3,7 @@ extends layout
 block content
   table.table
     each obj in tasks
-      if (obj.done) 
+      if (obj.done && user.id == obj.user_id) 
         tr
           th(scope='row') #{tasks.indexOf(obj) + 1}
           td=obj.title

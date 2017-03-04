@@ -7,8 +7,6 @@ const app = express()
 
 const routerTasks = require('./routes/tasks')
 const routerTask = require('./routes/task')
-const routerClients = require('./routes/clients')
-const routerClient = require('./routes/client')
 const urlDB = 'mongodb://localhost:27017/test'
 
 mongoose.connect(urlDB)
@@ -23,10 +21,21 @@ app.get('/', (req, res) => {
   const section = 'Home'
   res.render('home', {section})
 })
-app.use('/tasks', routerTasks)
-app.use('/task', routerTask)
-app.use('/clients', routerClients)
-app.use('/client', routerClient)
+
+// Authorization part
+const authRouter = require('./routes/auth')
+
+app.use(authRouter)
+
+function isLoggedIn (req, res, next) {
+  if (req.isAuthenticated()) return next()
+  console.log(req.isAuthenticated())
+  res.redirect('/')
+}
+//
+
+app.use('/tasks', isLoggedIn, routerTasks)
+app.use('/task', isLoggedIn, routerTask)
 
 app.listen(PORT, () =>
   console.log(`💼 Tasks Server running at PORT ${PORT}...`))

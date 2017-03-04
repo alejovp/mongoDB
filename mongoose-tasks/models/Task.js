@@ -7,7 +7,8 @@ const TaskSchema = new mongoose.Schema({
   title: String,
   done: Boolean,
   createdAt: Number,
-  modifiedAt: Number
+  modifiedAt: Number,
+  user_id: String
 }, { collection })
 
 module.exports = mongoose.model('Task', TaskSchema)

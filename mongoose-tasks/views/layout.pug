@@ -20,11 +20,15 @@ html(lang='en')
         #bs-toDoApp-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav
             li(class=activeList)
-              a(href='/tasks')
-                | Tasks List
-                span.sr-only
+              a(href='/tasks') Tasks List
             li(class=activeComp)
               a(href='/tasks/completed') Completed Tasks
+          ul.nav.navbar-nav.navbar-right
+            if (user)
+              li #{ user.username }
+              li
+                a(href="/logout") Log Out
+                
     .container
       h2=section
       p Welcome to my Task App

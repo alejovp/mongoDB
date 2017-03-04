@@ -4,11 +4,11 @@ block content
   table.table
     tr
       td
-        a.btn.btn-default.btnRegister(href=`#` type='button' data-toggle="modal" data-target="#myModalHorizontal") Register
+        a.btn.btn-default.btnRegister(href=`#` type='button' data-toggle="modal" data-target="#myModalRegister") Register
       td
-        a.btn.btn-default.btnLogIn(href=`/clients/` type='button') Log In
-  //- modal
-  #myModalHorizontal.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        a.btn.btn-default.btnLogIn(href=`#` type='button' data-toggle="modal" data-target="#myModalLogIn") Log In
+  //- modal Register
+  #myModalRegister.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
     .modal-dialog
       .modal-content
         .modal-header
@@ -18,41 +18,44 @@ block content
             span.sr-only Close
           h4#myModalLabel.modal-title  User Register
         .modal-body
-          form.form-horizontal(role='form', action='/clients', method='post')
+          form.form-horizontal(role='form', action='/register', method='post')
             .form-group
-              label.col-sm-2.control-label(for='inputName') First Name 
+              label.col-sm-2.control-label(for='inputName') Username 
               .col-sm-10
-                input#inputName.form-control(type='text', placeholder='First Name', name='firstName')
+                input#inputName.form-control(type='text', placeholder='Username', name='username')
             .form-group
-              label.col-sm-2.control-label(for='inputLastName') Last Name
+              label.col-sm-2.control-label(for='email') Email 
               .col-sm-10
-                input#inputLastName.form-control(type='text', placeholder='Last Name', name='lastName')
-            .form-group
-              label.col-sm-2.control-label(for='age') Age
-              .col-sm-10
-                input#inputLastName.form-control(type='number', placeholder='Age', name='age')
-            .form-group
-              label.col-sm-2.control-label(for='address') Address
-              .col-sm-10
-                input#address.form-control(type='text', placeholder='Address', name='address')
-            .form-group
-              label.col-sm-2.control-label(for='profession') Profession
-              .col-sm-10
-                input#profession.form-control(type='text', placeholder='Profession', name='profession')
+                input#email.form-control(type='email', placeholder='email', name='email')
             .form-group
               label.col-sm-2.control-label(for='inputPassword3') Password
               .col-sm-10
-                input#inputPassword3.form-control(type='password', placeholder='Password')
-            //- .form-group
-            //-   .col-sm-offset-2.col-sm-10
-            //-     .checkbox
-            //-       label
-            //-         input(type='checkbox')
-            //-         |  Remember me
+                input#inputPassword3.form-control(type='password', placeholder='Password', name='password')
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button.btn.btn-default(type='submit') Save
+        .modal-footer
+  //- modal Log In
+  #myModalLogIn.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          button.close(type='button', data-dismiss='modal')
+            span(aria-hidden='true') &times;
+            |  
+            span.sr-only Close
+          h4#myModalLabel.modal-title  Log In
+        .modal-body
+          form.form-horizontal(role='form', action='/login', method='post')
+            .form-group
+              label.col-sm-2.control-label(for='inputName') Username 
+              .col-sm-10
+                input#inputName.form-control(type='text', placeholder='Username', name='username')
+            .form-group
+              label.col-sm-2.control-label(for='inputPassword3') Password
+              .col-sm-10
+                input#inputPassword3.form-control(type='password', placeholder='Password', name='password')
             .form-group
               .col-sm-offset-2.col-sm-10
                 button.btn.btn-default(type='submit') Sign in
         .modal-footer
-          //- button.btn.btn-default(type='button', data-dismiss='modal')  Close
-          //- |  
-          //- button.btn.btn-primary(type='button')  Save changes
