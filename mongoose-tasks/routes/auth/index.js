@@ -24,7 +24,7 @@ passport.use(new LocalStrategy(Account.authenticate()))
 passport.serializeUser(Account.serializeUser())
 passport.deserializeUser(Account.deserializeUser())
 
-// These get routes will be handle with modal windows in the client
+// These get routes will be handled with modal windows in the client
 // router.get('/register', (req, res) => res.render('register'))
 // router.get('/login', (req, res) => res.render('login'))
 

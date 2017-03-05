@@ -1,7 +1,7 @@
 const Task = require('../../../models/Task.js')
 
 module.exports = (req, res) => {
-  const section = 'Completed Tasks'
+  const section = 'Here you can see all your completed tasks!'
   const user = req.user
   Task.find()
     .then(tasks => {

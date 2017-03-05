@@ -1,12 +1,22 @@
 extends layout
 
 block content
-  table.table
-    tr
-      td
-        a.btn.btn-default.btnRegister(href=`#` type='button' data-toggle="modal" data-target="#myModalRegister") Register
-      td
-        a.btn.btn-default.btnLogIn(href=`#` type='button' data-toggle="modal" data-target="#myModalLogIn") Log In
+  .container
+    section.jumbotron.text-center
+      .container.home_boxes.col-sm-6
+        h2.jumbotron-heading New User
+        p.lead.text-muted
+          | New to Task Manager??, then please join us and take control over your tasks.
+        p
+          a.btn.btn-primary.btnRegister(href=`#` type='button' data-toggle="modal" data-target="#myModalRegister") Register
+      .container.col-sm-6
+        h2.jumbotron-heading Registered User
+        p.lead.text-muted
+          | Hello!, please Log In to continue with your Task Manager.
+        p
+          a.btn.btn-default.btnLogIn(href=`#` type='button' data-toggle="modal" data-target="#myModalLogIn") Log In
+      hr
+
   //- modal Register
   #myModalRegister.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
     .modal-dialog
@@ -30,11 +40,12 @@ block content
             .form-group
               label.col-sm-2.control-label(for='inputPassword3') Password
               .col-sm-10
-                input#inputPassword3.form-control(type='password', placeholder='Password', name='password')
-            .form-group
-              .col-sm-offset-2.col-sm-10
-                button.btn.btn-default(type='submit') Save
+                input#inputPassword3.form-control(type='password', placeholder='Password', name='password')              
+          hr
         .modal-footer
+          .form-group
+            .col-sm-offset-2.col-sm-10
+              button.btn.btn-default(type='submit') Save
   //- modal Log In
   #myModalLogIn.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
     .modal-dialog
@@ -58,4 +69,6 @@ block content
             .form-group
               .col-sm-offset-2.col-sm-10
                 button.btn.btn-default(type='submit') Sign in
+          hr  
         .modal-footer
+          

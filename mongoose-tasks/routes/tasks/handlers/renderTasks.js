@@ -1,7 +1,7 @@
 const Task = require('../../../models/Task.js')
 
 module.exports = (req, res) => {
-  const section = 'Tasks List'
+  const section = 'Here you can see your pending task and also you will be able to add new ones!'
   const user = req.user
   Task.find()
     .then(tasks => {

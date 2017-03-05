@@ -1,32 +1,33 @@
 extends layout
 
 block content
-  form.form-inline(method='post', action='/tasks')
-    a.btn.btn-default.col-sm-1(href="/allDone" type='button') All Done
-    |
-    input.col-sm-10(type='text', name='title', placeholder='Write a task')
-    |  
-    button.btn.btn-primary.col-sm-1(type='submit') Add
-  table.table
-    thead
-      tr
-        td
-        th #
-        td Task Title
-        td Created At
-        td Modified At
-        td
-    tbody
-      each obj in tasks 
-        if (!obj.done && user.id == obj.user_id) 
-          tr
-            td
-              a.btn.btn-default.btnDone(href=`/task/${obj.id}` type='button') Done
-            th(scope='row') #{tasks.indexOf(obj) + 1}
-            td.taskTitle=obj.title
-            td=obj.createdAt
-            //- td 
-            //-   (Created at: #{obj.createdAt.getFullYear()}/#{obj.createdAt.getMonth() + 1}/#{obj.createdAt.getDay()} #{obj.createdAt.getHours()}:#{obj.createdAt.getMinutes()})
-            td=obj.modifiedAt
-            td
-              a.btn.btn-default.btnDelete(href=`/task/${obj.id}` type='button') Delete
+  .container.text-center
+    h3 Welcome to Task Manager
+    p=section
+  .container
+    .col-sm-5
+      form(method='post', action='/tasks')
+        .form-group
+          input.form-control(type='text', name='title', placeholder='Write a task title')    
+        .form-group
+          textarea.form-control(placeholder='Write a task description' rows='4' name='description')
+        .form-group
+          button.btn.btn-primary.pull-right(type='submit') Add New Task
+      hr
+
+    #accordion.panel-group.col-sm-7(role='tablist', aria-multiselectable='true')
+      each obj in tasks
+        if (!obj.done && user.id == obj.user_id)
+          .panel.panel-default
+            .panel-heading(role='tab' id=`heading${tasks.indexOf(obj)}`)
+              .panel-title
+                a.btn.col-sm-7(id='btnTask' role='button', data-toggle='collapse', data-parent='#accordion', href=`#collapse${tasks.indexOf(obj)}`, aria-expanded='false', aria-controls=`collapse${tasks.indexOf(obj)}`) #{obj.title}
+                a.btn.btn-default.btnDelete.pull-right(href=`/task/${obj.id}` type='button') Delete
+                a.btn.btn-default.btnDone.pull-right(href=`/task/${obj.id}` type='button') Done
+              hr
+            .panel-collapse.collapse(role='tabpanel', aria-labelledby=`heading${tasks.indexOf(obj)}`, id=`collapse${tasks.indexOf(obj)}`)
+              .panel-body
+                p #{obj.description}
+                | #{obj.createdAt}
+    a.btn.btn-default.pull-right.btnLogIn(href="/allDone" type='button') All Done 
+

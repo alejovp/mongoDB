@@ -17,23 +17,21 @@ html(lang='en')
             span.icon-bar
           |  
           a.navbar-brand(href='/') Tasks Manager
+        
         #bs-toDoApp-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav
-            li(class=activeList)
-              a(href='/tasks') Tasks List
-            li(class=activeComp)
-              a(href='/tasks/completed') Completed Tasks
-          ul.nav.navbar-nav.navbar-right
-            if (user)
-              li #{ user.username }
+          if (user)  
+            ul.nav.navbar-nav
+              li(class=activeList)
+                a(href='/tasks') My Tasks
+              li(class=activeComp)
+                a(href='/tasks/completed') Completed Tasks  
+            ul.nav.navbar-nav.navbar-right
               li
                 a(href="/logout") Log Out
-                
-    .container
-      h2=section
-      p Welcome to my Task App
-    .container  
-      block content
+            span.pull-right(id='navUser') #{ user.username }
+                  
+    block content
+
     <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/main.js"></script>
