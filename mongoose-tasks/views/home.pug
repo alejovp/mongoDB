@@ -41,11 +41,12 @@ block content
               label.col-sm-2.control-label(for='inputPassword3') Password
               .col-sm-10
                 input#inputPassword3.form-control(type='password', placeholder='Password', name='password')              
+            .form-group
+              .col-sm-offset-2.col-sm-10
+                button.btn.btn-default(type='submit') Save
           hr
         .modal-footer
-          .form-group
-            .col-sm-offset-2.col-sm-10
-              button.btn.btn-default(type='submit') Save
+          
   //- modal Log In
   #myModalLogIn.modal.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
     .modal-dialog

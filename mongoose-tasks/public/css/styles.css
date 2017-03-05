@@ -12,18 +12,6 @@ body > nav.navbar {
   border-bottom: 1px solid black; 
 }
 
-body > div:nth-child(3) {
-  background-color: #A3CFDE;
-  border-top: 2px solid grey;
-  padding-right: 0;
-}
-
-body > div:nth-child(3) > div.col-sm-5 {
-  padding-left: 0;
-  padding-top: 15px;
-  margin-bottom: 20px;
-}
-
 h2 {
   font-size: 40px;
 }
@@ -68,6 +56,18 @@ body > div:nth-child(3) > a {
 
 .home_boxes {
   border-right: 1px solid black;
+}
+
+.desktop {
+  background-color: #A3CFDE;
+  border-top: 2px solid grey;
+  padding-right: 0;
+}
+
+.desktop > div.col-sm-5 {
+  padding-left: 0;
+  padding-top: 15px;
+  margin-bottom: 20px;
 }
 
 .btnLogIn {
